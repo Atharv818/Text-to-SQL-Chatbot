@@ -42,7 +42,7 @@ def get_schema(db):
 
 llm = ChatGoogleGenerativeAI(
     model = 'gemini-2.5-flash',
-    api_key = 'AIzaSyAXofCDWyIqM1fP0Q71E3UaodWOkScqIbc'                 # make it private using .env
+    api_key = 'API_KEY'                 # make it private using .env
 )
 
 # Create the sql query chain using the LLM and the prompt template
