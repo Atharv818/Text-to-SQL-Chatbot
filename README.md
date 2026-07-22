@@ -1,38 +1,39 @@
 # Text-to-SQL Chatbot
 
-An AI-powered chatbot that converts plain English questions into optimized SQL queries, using Google's Gemini LLM and LangChain — built with an agentic workflow that reads the live database schema and generates accurate, context-aware SQL.
+An AI-powered chatbot that converts plain English questions into optimized SQL queries and runs them live — built with Gemini, LangChain, and a Streamlit interface.
+
+🔗 **Live Demo:** _(add your Render link here once deployed)_
 
 ## How It Works
-1. Connects to a MySQL database and reads its schema
-2. Takes a natural language question as input
-3. Passes the schema + question to Gemini via a LangChain prompt chain
-4. Returns a ready-to-run SQL query
+1. Sample business data (products, regions, orders, customers, budgets) is loaded into a local SQLite database
+2. You ask a question in plain English via the Streamlit UI
+3. LangChain + Gemini read the database schema and generate an accurate SQL query
+4. The query runs automatically and the result is displayed — no SQL knowledge required
 
 ## Tech Stack
-- **LangChain** — orchestration and prompt chaining
-- **Google Gemini (gemini-2.5-flash)** — LLM for SQL generation
-- **MySQL + PyMySQL** — database connection
-- **python-dotenv** — environment variable management
+- **Streamlit** — interactive web UI
+- **LangChain** — prompt orchestration
+- **Google Gemini (gemini-2.5-flash)** — SQL generation
+- **SQLite + Pandas** — lightweight, zero-setup database built from CSVs
 
 ## Setup
 
-1. Clone the repo and install dependencies:
+1. Install dependencies:
    \`\`\`bash
    pip install -r requirements.txt
    \`\`\`
 
-2. Copy \`.env.example\` to \`.env\` and fill in your actual database credentials and Gemini API key:
+2. Copy \`.env.example\` to \`.env\` and add your Gemini API key:
    \`\`\`bash
    cp .env.example .env
    \`\`\`
 
 3. Run:
    \`\`\`bash
-   python src/main.py
+   streamlit run src/app.py
    \`\`\`
 
-## Sample Data
-The \`data/\` folder contains sample CSVs (Products, Regions, Customers, Orders, Budgets) used to populate the test database schema this project was built against.
+The SQLite database is built automatically on first run from the CSVs in \`data/\`.
 
 ## Example
 **Question:** "What is the sum of all total unit cost from orders?"
