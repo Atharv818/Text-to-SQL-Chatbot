@@ -30,7 +30,7 @@ def get_schema(db):
 def build_chain(api_key: str):
     db = get_db()
     prompt = ChatPromptTemplate.from_template(TEMPLATE)
-    llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", api_key=api_key)
+    llm = ChatGoogleGenerativeAI(model="gemini-flash-latest", api_key=api_key)
 
     chain = (
         RunnablePassthrough.assign(schema=lambda _: get_schema(db))
