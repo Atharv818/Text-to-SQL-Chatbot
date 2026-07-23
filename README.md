@@ -2,7 +2,7 @@
 
 An AI-powered chatbot that converts plain English questions into optimized SQL queries and runs them live — built with Gemini, LangChain, and a Streamlit interface.
 
-🔗 **Live Demo:** _(add your Render link here once deployed)_
+🔗 **Live Demo:** https://text-to-sql-chatbot-x0iq.onrender.com
 
 ## How It Works
 1. Sample business data (products, regions, orders, customers, budgets) is loaded into a local SQLite database
